@@ -1,0 +1,125 @@
+﻿@model ProductManagement.Models.ViewModel.AppointmentsViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br/>
+<h2 class="text-info">Appointment List</h2>
+<br/>
+
+<form method="get">
+    <div class="container border" style="background: aliceblue">
+        <div class="col-12">
+            <div class="row" style="padding-top: 10px">
+                <div class="col-2">
+                    Customer Name
+                </div>
+                <div class="col-4">
+                    @Html.Editor("customerName", new {htmlAttributes = new {@class = "form-control"}})
+                </div>
+                <div class="col-2">
+                    Email
+                </div>
+                <div class="col-4">
+                    @Html.Editor("email", new {htmlAttributes = new {@class = "form-control"}})
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row" style="padding-top: 10px">
+                <div class="col-2">
+                    Phone Number
+                </div>
+                <div class="col-4">
+                    @Html.Editor("phoneNumber", new {htmlAttributes = new {@class = "form-control"}})
+                </div>
+                <div class="col-2">
+                    Appointment Date
+                </div>
+                <div class="col-4">
+                    @Html.Editor("appointmentDate", new {htmlAttributes = new {@class = "form-control", @id = "datepicker"}})
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row" style="padding-top: 10px">
+                <div class="col-8"></div>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary form-control">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<br/>
+@if (Model.AppointmentsList.Count > 0)
+{
+    <table class="table table-striped" width="100%">
+        <tr class="table-info">
+            <th style="text-align: center;">
+                @Html.DisplayNameFor(model => model.AppointmentsList.FirstOrDefault().ApplicationUser.Name)
+            </th>
+            <th style="text-align: center">
+                @Html.DisplayNameFor(model => model.AppointmentsList.FirstOrDefault().AppointmentDate)
+            </th>
+            <th style="text-align: center">
+                @Html.DisplayNameFor(model => model.AppointmentsList.FirstOrDefault().CustomerName)
+            </th>
+            <th style="text-align: center">
+                @Html.DisplayNameFor(model => model.AppointmentsList.FirstOrDefault().CustomerPhoneNumber)
+            </th>
+            <th style="text-align: center">
+                @Html.DisplayNameFor(model => model.AppointmentsList.FirstOrDefault().CustomerEmail)
+            </th>
+            <th style="text-align: center">
+                @Html.DisplayNameFor(model => model.AppointmentsList.FirstOrDefault().IsConfirmed)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (Appointments appointments in Model.AppointmentsList)
+        {
+            <tr style="padding: 50px">
+                <td style="text-align: center">
+                    @Html.DisplayFor(model => appointments.ApplicationUser.Name)
+                </td>
+                <td style="text-align: center">
+                    @Html.DisplayFor(model => appointments.AppointmentDate)
+                </td>
+                <td style="text-align: center">
+                    @Html.DisplayFor(model => appointments.CustomerName)
+                </td>
+                <td style="text-align: center">
+                    @Html.DisplayFor(model => appointments.CustomerPhoneNumber)
+                </td>
+                <td style="text-align: center">
+                    @Html.DisplayFor(model => appointments.CustomerEmail)
+                </td>
+                <td style="text-align: center">
+                    @Html.DisplayFor(model => appointments.IsConfirmed)
+                </td>
+                <partial name="_TableButtonPartial" model="@appointments.Id"/>
+            </tr>
+        }
+    </table>
+    <div paging-info="@Model.PagingInfo" page-action="Index" page-class-enabled="true"
+         page-class="btn border" page-class-normal="btn-default"
+         page-class-selected="btn-primary active" class="btn-group m-1">
+    </div>
+}
+else
+{
+    <div>No items added to the appointments list...</div>
+}
+
+@section Scripts
+{
+    <script>
+        $("#datepicker").datepicker({
+            minDate: '+1d',
+            maxDate: '+3m'
+        });
+    </script>
+}

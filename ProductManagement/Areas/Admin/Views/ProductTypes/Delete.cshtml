@@ -1,0 +1,23 @@
+﻿@model ProductTypes
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<h2 class="text-info">Delete Product Type</h2>
+
+<form method="post" asp-action="Delete">
+    <div class="form-group row">
+        <div class="col-lg-2">
+            <label asp-for="Name"></label>
+        </div>
+        <div class="col-lg-5">
+            <input asp-for="Name" disabled="disabled" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger" value="Delete" />
+        <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </div>
+</form>

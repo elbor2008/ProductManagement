@@ -1,0 +1,23 @@
+﻿@model ProductTypes
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<br />
+<h2 class="text-info">Product Type Detail</h2>
+
+<form method="post" asp-action="Detail">
+    <div class="form-group row">
+        <div class="col-lg-2">
+            <label asp-for="Name"></label>
+        </div>
+        <div class="col-lg-5">
+            <input asp-for="Name" disabled="disabled" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-success">Back to List</a>
+    </div>
+</form>

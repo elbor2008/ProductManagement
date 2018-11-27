@@ -1,0 +1,17 @@
+﻿@model ProductManagement.Models.ViewModel.ShoppingCartViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br/>
+<h2 class="text-info">Appointment Confirmation</h2>
+<div class="form-text">
+    Your appointment has been submitted. One of our awesome Sales Rep would be in touch shortly.
+</div>
+<br/>
+
+<partial name="_AppointmentCustomerDetailPartial" model="@Model.Appointments"/>
+<br/>
+<partial name="_ProductAppointmentDetailPartial" model="@Model.Products"/>
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-success">Back to Products</a>

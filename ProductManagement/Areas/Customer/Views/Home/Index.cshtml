@@ -1,0 +1,31 @@
+﻿@model List<Products>
+
+<br/><br/>
+
+<div class="row">
+    @foreach (Products p in Model)
+    {
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">
+                        <label style="font-size: 23px; color: steelblue">
+                            @p.Name
+                        </label>
+                    </h4>
+                </div>
+                <img src="@p.Image" class="card-img-top" style="width: 100%; height: 185px"/>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <label style="font-size: 20px; color: #a51313">
+                                <b>$@p.Price</b>/sq.ft
+                            </label>
+                        </div>
+                        <a asp-action="Detail" asp-controller="Home" asp-route-id="@p.Id" class="btn btn-success pull-right btn-outline-info">View Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

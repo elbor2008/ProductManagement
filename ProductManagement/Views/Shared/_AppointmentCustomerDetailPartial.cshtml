@@ -1,0 +1,40 @@
+﻿@model Appointments
+
+<h4 class="text-success">Customer Detail</h4>
+
+<br/>
+
+<div class="container border">
+    <div class="col-12">
+        <div class="row" style="padding-top: 10px">
+            <div class="col-2">
+                Customer Name
+            </div>
+            <div class="col-4">
+                <input asp-for="CustomerName" readonly="readonly" class="form-control"/>
+            </div>
+            <div class="col-2">
+                Email
+            </div>
+            <div class="col-4">
+                <input asp-for="CustomerEmail" readonly="readonly" class="form-control"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="row" style="padding-top: 10px">
+            <div class="col-2">
+                Phone Number
+            </div>
+            <div class="col-4">
+                <input asp-for="CustomerPhoneNumber" readonly="readonly" class="form-control"/>
+            </div>
+            <div class="col-2">
+                Appointment Date
+            </div>
+            <div class="col-4">
+                <input asp-for="AppointmentDate" readonly="readonly" class="form-control"/>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@using ProductManagement.Extensions
+@using ProductManagement.Utility
+@model ProductManagement.Models.ViewModel.AppointmentsDetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<br/>
+<h2 class="text-info">Appointment Detail</h2>
+
+<div class="row border rounded">
+    <div class="col-6" style="padding: 15px">
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Appointments.CustomerName"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Appointments.CustomerName" disabled="disabled" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Appointments.AppointmentDate"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Appointments.AppointmentDate" disabled="disabled" type="text" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Appointments.AppointmentTime"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Appointments.AppointmentTime" disabled="disabled" type="text" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Appointments.CustomerPhoneNumber"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Appointments.CustomerPhoneNumber" disabled="disabled" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Appointments.CustomerEmail"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Appointments.CustomerEmail" disabled="disabled" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Appointments.ApplicationUserId"></label>
+            </div>
+            <div class="col-8">
+                @if (User.IsInRole(SD.AdminEndUser))
+                {
+                    <input asp-for="Appointments.ApplicationUser.Name" disabled="disabled" class="form-control"/>
+                    <input asp-for="Appointments.ApplicationUserId" type="hidden"/>
+                }
+                else
+                {
+                    <select asp-for="Appointments.ApplicationUserId" disabled="disabled" asp-items="@Model.ApplicationUserList.ToSelectListItem(@Model.Appointments.ApplicationUserId)" class="form-control"></select>
+                }
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Appointments.IsConfirmed"></label>
+            </div>
+            <div class="col-8">
+                <input disabled="disabled" asp-for="Appointments.IsConfirmed"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-12">
+                <a asp-action="Edit" asp-route-id="@Model.Appointments.Id" class="btn btn-primary">Update</a>
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-6" style="padding: 15px">
+        <partial name="_ProductAppointmentDetailPartial" model="@Model.ProductsList"/>
+    </div>
+</div>
