@@ -14,7 +14,11 @@ VS2017 + ASP.NET Core MVC + SQL SERVER 2012
 	run the application
 # Partial Snapshot
 ![Index](https://github.com/elbor2008/MarkdownPhotos/blob/master/ProductManagement/Index.PNG)
+
 ![Login](https://github.com/elbor2008/MarkdownPhotos/blob/master/ProductManagement/Login.PNG)
+
 ![ProductList](https://github.com/elbor2008/MarkdownPhotos/blob/master/ProductManagement/ProductList.PNG)
+
 ![UserList](https://github.com/elbor2008/MarkdownPhotos/blob/master/ProductManagement/UserList.PNG)
+
 ![HomePage](https://github.com/elbor2008/MarkdownPhotos/blob/master/ProductManagement/HomePage.PNG)
