@@ -1,7 +1,7 @@
 # About
 An online product system for user to achieve product management, shopping cart management, appointment management and authority control. 
 # Technique Stack
-VS2017 + ASP.NET Core MVC + SQL SERVER 2012
+VS2017 + ASP.NET Core MVC + Entity Framework Core + SQL SERVER 2012
 # Project Installation
 	git clone https://github.com/elbor2008/ProductManagement.git
 
